@@ -7,14 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Reflection;
 
 namespace infor4_gyak
 {
+
     public partial class Form1 : Form
     {
+        Excel.Application xlApp; 
+        Excel.Workbook xlWB; 
+        Excel.Worksheet xlSheet;
+
+        RealEstateEntities context = new RealEstateEntities();
+        List<Flat> Flats;
         public Form1()
         {
             InitializeComponent();
+            LoadData();
         }
+        private void LoadData()
+        {
+            Flats = context.Flats.ToList();
+        }
+        
     }
 }
