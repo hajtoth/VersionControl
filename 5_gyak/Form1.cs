@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,6 +67,27 @@ namespace _5_gyak
                 value += (decimal)last.Price * item.Volume;
             }
             return value;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+
+            if (sfd.ShowDialog() != DialogResult.OK) return;
+
+            using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+            {
+                // Végigmegyünk a hallgató lista elemein
+                foreach (var s in Ticks)
+                {
+
+                    sw.Write(s.Index);
+                    sw.Write(";");
+                    sw.Write(s.Price);
+                    sw.Write(";");
+                    sw.WriteLine(); // Ez a sor az alábbi módon is írható: sr.Write("\n");
+                }
+            }
         }
     }
 }
