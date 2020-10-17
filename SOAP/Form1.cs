@@ -18,6 +18,7 @@ namespace SOAP
     public partial class Form1 : Form
     {
         BindingList<RateDate> Rates = new BindingList<RateDate>();
+        BindingList<string> Currencies = new BindingList<string>();
 
         private void RefreshData()
         {
