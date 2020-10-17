@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.Xml;
 using SOAP.Entities;
@@ -19,9 +20,12 @@ namespace SOAP
 
         public Form1()
         {
-           
+            
+
             InitializeComponent();
             var mnbService = new MNBArfolyamServiceSoapClient();
+
+            
 
             var request = new GetExchangeRatesRequestBody()
             {
@@ -36,10 +40,29 @@ namespace SOAP
 
             var xml = new XmlDocument();
             xml.LoadXml(result);
-        }
+
+            foreach (XmlElement element in xml.DocumentElement)
+            {
+
+                var rate = new RateDate();
+                Rates.Add(rate);
+
+                // Date
+                rate.Date = DateTime.Parse(element.GetAttribute("date"));
+
+                // Currency
+                var childElement = (XmlElement)element.ChildNodes[0];
+                rate.Currency = childElement.GetAttribute("curr");
+
+                // Value
+                var unit = decimal.Parse(childElement.GetAttribute("unit"));
+                var value = decimal.Parse(childElement.InnerText);
+                if (unit != 0)
+                    rate.Value = value / unit;
+            }
 
 
-        
+            }
       
     }
 }
