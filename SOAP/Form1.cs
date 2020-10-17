@@ -19,14 +19,13 @@ namespace SOAP
     {
         BindingList<RateDate> Rates = new BindingList<RateDate>();
 
-        public Form1()
+        private void RefreshData()
         {
-            
-
+            Rates.Clear();
             InitializeComponent();
             var mnbService = new MNBArfolyamServiceSoapClient();
 
-            
+
 
             var request = new GetExchangeRatesRequestBody()
             {
@@ -64,7 +63,7 @@ namespace SOAP
             chart1.DataSource = Rates;
 
             var series = chart1.Series[0];
-            
+
             series.XValueMember = "Date";
             series.YValueMembers = "Value";
             series.BorderWidth = 2;
@@ -78,7 +77,6 @@ namespace SOAP
             chartArea.AxisY.IsStartedFromZero = false;
 
         }
-
-        
     }
+
 }
