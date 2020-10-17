@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using SOAP.Entities;
 using SOAP.MnbServiceReference;
 
@@ -32,7 +33,11 @@ namespace SOAP
             var result = response.GetExchangeRatesResult;
 
             dataGridView1.DataSource = Rates;
+
+            var xml = new XmlDocument();
+            xml.LoadXml(result);
         }
+
 
         
       
