@@ -7,13 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SOAP.Entities;
 using SOAP.MnbServiceReference;
 
 namespace SOAP
 {
     public partial class Form1 : Form
     {
- 
+        BindingList<RateDate> Rates = new BindingList<RateDate>();
+
         public Form1()
         {
            
@@ -28,6 +30,8 @@ namespace SOAP
             };
             var response = mnbService.GetExchangeRates(request);
             var result = response.GetExchangeRatesResult;
+
+            dataGridView1.DataSource = Rates;
         }
 
         
