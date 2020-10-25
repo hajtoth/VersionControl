@@ -13,7 +13,7 @@ namespace _7_gyak.Entities
         public int NbrOfChildren { get; set; }
         public bool IsAlive { get; set; }
 
-        public Person()
+        public Persom()
         {
             IsAlive = true;
         }
