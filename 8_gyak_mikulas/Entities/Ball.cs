@@ -5,10 +5,11 @@ using System.Windows.Forms;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using _8_gyak_mikulas.Abstractions;
 
 namespace _8_gyak_mikulas.Entities
 {
-    public class Ball : Label
+    public class Ball : Toy
     {
         public Ball()
         {
@@ -24,7 +25,7 @@ namespace _8_gyak_mikulas.Entities
         
         }
 
-        protected void DrawImage(Graphics g)
+        protected override void DrawImage(Graphics g)
         {
             g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
         }
@@ -34,5 +35,6 @@ namespace _8_gyak_mikulas.Entities
             Left += 1;
         }
 
+      
     }
 }
