@@ -9,8 +9,6 @@ using System.Drawing;
 namespace _8_gyak_mikulas.Entities
 {
     public class Ball : Label
-
-
     {
         public Ball()
         {
@@ -21,15 +19,9 @@ namespace _8_gyak_mikulas.Entities
         }
         private void Ball_Paint(object sender, PaintEventArgs e)
         {
+
             DrawImage(e.Graphics);
-  
-        }
-
-      
-
-        private void DrawImage(Graphics graphics)
-        {
-            throw new NotImplementedException();
+        
         }
 
         protected void DrawImage(Graphics g)
@@ -41,7 +33,6 @@ namespace _8_gyak_mikulas.Entities
         {
             Left += 1;
         }
-
 
     }
 }
