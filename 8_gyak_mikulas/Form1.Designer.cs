@@ -43,8 +43,7 @@
             // 
             // createTimer
             // 
-            this.createTimer.Enabled = true;
-            this.createTimer.Interval = 3000;
+            this.createTimer.Interval = 3;
             // 
             // conveyorTimer
             // 
