@@ -14,11 +14,14 @@ namespace _8_gyak_mikulas
 {
     public partial class Form1 : Form
     {
+
+
         public Form1()
         {
             InitializeComponent();
             Factory = new BallFactory();
         }
+        
         private List<Toy> _toys = new List<Toy>();
 
         private IToyFactory _factory;
@@ -55,7 +58,18 @@ namespace _8_gyak_mikulas
                 _toys.Remove(oldestBall);
             }
         }
+        private void btnSelectCar_Click(object sender, EventArgs e)
+        {
+            Factory = new CarFactory();
+        }
 
-    
+        private void btnSelectBall_Click(object sender, EventArgs e)
+        {
+            Factory = new BallFactory();
+        }
+
+       
+
+
     }
 }
