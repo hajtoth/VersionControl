@@ -84,7 +84,7 @@
             // btnColor
             // 
             this.btnColor.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnColor.Location = new System.Drawing.Point(457, 32);
+            this.btnColor.Location = new System.Drawing.Point(445, 32);
             this.btnColor.Name = "btnColor";
             this.btnColor.Size = new System.Drawing.Size(75, 39);
             this.btnColor.TabIndex = 4;
